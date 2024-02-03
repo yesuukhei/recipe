@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export default class search {
+export default class Search {
     constructor(query) {
         this.query = query;
     }
@@ -12,7 +12,7 @@ export default class search {
 
             return this.result;
         }catch(error){
-            alert('aldaa ilerlee' + error);
+            console.log('aldaa ilerlee' + error);
         }
     }
 }
