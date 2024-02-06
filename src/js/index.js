@@ -22,6 +22,7 @@ const controlSearch = async () => {
     searchView.clearSearchField();
     searchView.clearSearchResult();
 
+
     //4) Хайлтыг гүйцэтгэнэ
     await state.search.doSearch();
     
@@ -36,4 +37,12 @@ const controlSearch = async () => {
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     controlSearch();
+});
+elements.searchButton.addEventListener('click', e => {
+    const btn = e.target.closest('.btn-inline');
+    if(btn) {
+        const goto = parseInt( btn.dataset.goto );
+        searchView.clearSearchResult();
+        searchView.renderRecipes(state.search.result, goto);
+    }
 })
